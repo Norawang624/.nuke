@@ -40,8 +40,25 @@ else:
 nuke.knobDefault('Tracker4.shutteroffset', "centered")
 nuke.knobDefault('Tracker4.label', "Motion: [value transform]\nRef frame: [value reference_frame]")
 nuke.addOnUserCreate(lambda:nuke.thisNode()['reference_frame'].setValue(nuke.frame()), nodeClass='Tracker4')
+nuke.knobDefault('TransformMasked.shutteroffset', "centred")
+nuke.knobDefault('Transform.shutteroffset', "centred")
 
+nuke.addOnUserCreate(lambda:nuke.thisNode()['first_frame'].setValue(nuke.frame()), nodeClass='FrameHold')
 
+nuke.knobDefault('Blur.size', "2")
+nuke.knobDefault('Blur.label', "Size: [value size]")
+
+nuke.knobDefault('FilterErode.label', "[value size]")
+nuke.knobDefault('Dilate.label', "[value size]")
+nuke.knobDefault('Erode.label', "[value size]")
+
+nuke.knobDefault("StickyNote.note_font_size", "60")
+
+nuke.knobDefault("RotoPaint.toolbox", "brush {{brush ltt 0} {clone ltt 0}}")
+
+nuke.knobDefault('Merge2.bbox', "B")
+
+nuke.knobDefault('Shuffle2.label', "[value in1]/[value out1]\n[value in2]/[value out2]")
 
 
 #---------------------------------------------------------------------
