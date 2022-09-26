@@ -1,7 +1,7 @@
 #	------------------------
 #	menu.py
-#	Version: 1.0.0
-#	Last Updated: Sep-23-2022
+#	Version: 1.0.3
+#	Last Updated: Sep-26-2022
 #	------------------------
 
 #---------------------------------------------------------------------
@@ -47,18 +47,18 @@ nuke.addOnUserCreate(lambda:nuke.thisNode()['first_frame'].setValue(nuke.frame()
 
 nuke.knobDefault('Blur.size', "2")
 nuke.knobDefault('Blur.label', "Size: [value size]")
-
 nuke.knobDefault('FilterErode.label', "[value size]")
 nuke.knobDefault('Dilate.label', "[value size]")
 nuke.knobDefault('Erode.label', "[value size]")
-
 nuke.knobDefault("StickyNote.note_font_size", "60")
-
 nuke.knobDefault("RotoPaint.toolbox", "brush {{brush ltt 0} {clone ltt 0}}")
-
 nuke.knobDefault('Merge2.bbox', "B")
-
 nuke.knobDefault('Shuffle2.label', "[value in1]/[value out1]\n[value in2]/[value out2]")
+
+#---------------------------Merge---------------------------------------
+mergeMenu = nuke.menu('Nodes').findItem("Merge/Merges")
+
+mergeMenu.addCommand('Stencil', 'nuke.createNode("Merge2", "operation stencil bbox B")', "alt+o", icon="Out.png", shortcutContext=2)
 
 
 #---------------------------------------------------------------------
